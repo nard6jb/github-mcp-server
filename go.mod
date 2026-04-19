@@ -33,3 +33,4 @@ require (
 )
 
 // Personal fork - tracking upstream github/github-mcp-server for learning purposes
+// TODO: explore upgrading to go-github/v68 once it stabilizes
