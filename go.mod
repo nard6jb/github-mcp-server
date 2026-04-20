@@ -34,5 +34,6 @@ require (
 
 // Personal fork - tracking upstream github/github-mcp-server for learning purposes
 // TODO: explore upgrading to go-github/v68 once it stabilizes
+// TODO: look into replacing mitchellh/mapstructure with mapstructure v2 (it's been archived upstream)
 // NOTE: golang.org/x/sys v0.28.0 is the minimum required for Windows arm64 support;
 //       do not downgrade below v0.26.0 or fsnotify will break on that platform
