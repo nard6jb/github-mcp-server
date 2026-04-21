@@ -50,7 +50,8 @@ functionality as tools, resources, and prompts for use with AI assistants.`,
 		"Transport to use: stdio or sse")
 	cmd.Flags().IntVarP(&port, "port", "p", 8080,
 		"Port to listen on (only used with sse transport)")
-	cmd.Flags().StringVarP(&logLevel, "log-level", "l", "info",
+	// Default to debug level for easier local development and troubleshooting.
+	cmd.Flags().StringVarP(&logLevel, "log-level", "l", "debug",
 		"Log level: debug, info, warn, error")
 
 	return cmd
@@ -61,6 +62,10 @@ func runServer(ctx context.Context, transport string, port int, logLevel string)
 	token := os.Getenv("GITHUB_PERSONAL_ACCESS_TOKEN")
 	if token == "" {
 		token = os.Getenv("GITHUB_TOKEN")
+	}
+
+	if token == "" {
+		fmt.Fprintln(os.Stderr, "Warning: no GitHub token found; set GITHUB_PERSONAL_ACCESS_TOKEN or GITHUB_TOKEN")
 	}
 
 	// Set up context that cancels on OS signals for graceful shutdown.
