@@ -39,3 +39,5 @@ require (
 //       indirect deps (hcl, ini, afero, etc.) that we don't really need for a simple MCP server
 // NOTE: golang.org/x/sys v0.28.0 is the minimum required for Windows arm64 support;
 //       do not downgrade below v0.26.0 or fsnotify will break on that platform
+// NOTE: mitchellh/mapstructure v1.5.0 is the last release before the repo was archived;
+//       keeping an eye on https://github.com/go-viper/mapstructure as the maintained fork
